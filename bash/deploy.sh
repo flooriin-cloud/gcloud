@@ -1,4 +1,5 @@
 #! /bin/bash
+#https://dzone.com/articles/install-cassandra-on-ubuntu-1804
 function package_exists() {
     return dpkg -l "$1" &> /dev/null
 }
@@ -26,6 +27,8 @@ chmod g+w -R /usr/local/cassandra/
 #Testing Permissions
 #su - cassandra
 #/usr/local/cassandra/bin/cassandra -f
+#/usr/local/cassandra/bin/cqlsh localhost
+#select cluster_name, listen_address from system.local;
 
 cat <<EOF > /etc/systemd/system/cassandra.service
 [Unit]
