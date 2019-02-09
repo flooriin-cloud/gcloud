@@ -12,8 +12,6 @@ fi
 apt install python less nano -y
 
 #Download Cassandra
-mkdir /home/init/
-cd /home/init
 wget http://apache.claz.org/cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz
 tar -xzf apache-cassandra-3.11.3-bin.tar.gz
 mv -v apache-cassandra-3.11.3 cassandra
@@ -44,3 +42,9 @@ WantedBy=multi-user.target
 EOF
 
 systemctl daemon-reload && systemctl start cassandra.service && systemctl enable cassandra.service
+
+#Configuring Cassandra
+#/usr/local/cassandra/conf/cassandra.yaml
+#listen_address: 102.168.1.47
+#rpc_address: 192.168.1.47
+#systemctl restart cassandra
